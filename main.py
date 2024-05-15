@@ -1,11 +1,11 @@
 from tkinter import *
 from user import input
-from level import first_level
+from level import level
 
 root = Tk()
 root.title("Game Python")
-root.geometry("600x400")
-canvas = Canvas(root, width=600, height=400)
+root.geometry("900x800")
+canvas = Canvas(root, width=900, height=800)
 canvas.pack()
 
 signe_x = [1]
@@ -16,6 +16,6 @@ square = canvas.create_rectangle(100, 100, 200, 200, fill="red")
 
 input.bind_reverse_key(root, canvas, square, signe_x, signe_y)
 
-first_level.first_level(root, canvas, square, signe_x, signe_y, vitesse)
+level.second_level(root, canvas, square, signe_x, signe_y, vitesse)
 
 root.mainloop()
