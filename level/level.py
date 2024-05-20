@@ -22,8 +22,10 @@ def first_level(root, canvas, square, signe_x, signe_y, vitesse):
 
 
 def second_level(root, canvas, square, signe_x, signe_y, vitesse):
+    v_block2 = 2
     y_milieu=(canvas.coords(square)[1]+canvas.coords(square)[3])/2
     block1 = canvas.create_rectangle(50, y_milieu -100, 25, y_milieu+100, fill="black")
+    block2 = canvas.create_rectangle(850, y_milieu - 100, 875, y_milieu + 100, fill="black")
 
     canvas.update()
     existe=False
@@ -51,6 +53,12 @@ def second_level(root, canvas, square, signe_x, signe_y, vitesse):
         
 
         canvas.move(block1, 0, vitesse * signe_y[0]  )
+
+        canvas.move(block2, 0, v_block2)  
+        # Si le bloc 2 atteint le bord du canvas, il part dans l'autre sens
+        if canvas.coords(block2)[3] >= 800 or canvas.coords(block2)[1] <= 0:
+            v_block2 *= -1
+        
         canvas.update()
         if canvas.coords(square)[2] >= 900 or canvas.coords(square)[0] <= 0:
             signe_x[0] *= -1
@@ -59,5 +67,10 @@ def second_level(root, canvas, square, signe_x, signe_y, vitesse):
 
         if canvas.coords(square)[0] <= 50:
             signe_x[0] *= -1
+        
+        # Si le cube touche block2, il rebondit
+        if (canvas.coords(square)[2] >= canvas.coords(block2)[0] and canvas.coords(square)[0] <= canvas.coords(block2)[2]) and (canvas.coords(square)[3] >= canvas.coords(block2)[1] and canvas.coords(square)[1] <= canvas.coords(block2)[3]):
+            signe_x[0] *= -1
+        
         canvas.after(1)
         canvas.update()
