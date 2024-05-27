@@ -16,6 +16,6 @@ square = canvas.create_rectangle(100, 100, 200, 200, fill="red")
 
 input.bind_reverse_key(root, canvas, square, signe_x, signe_y)
 
-level.second_level(root, canvas, square, signe_x, signe_y, vitesse)
+level.level_3(root, canvas, square, signe_x, signe_y, vitesse)
 
 root.mainloop()
