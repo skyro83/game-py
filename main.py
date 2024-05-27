@@ -10,12 +10,12 @@ canvas.pack()
 
 signe_x = [1]
 signe_y = [1]
-vitesse = 2  # Augmentez cette valeur pour augmenter la vitesse
+vitesse = 5  # Augmentez cette valeur pour augmenter la vitesse
 
 square = canvas.create_rectangle(100, 100, 200, 200, fill="red")
 
 input.bind_reverse_key(root, canvas, square, signe_x, signe_y)
 
-level.level_3(root, canvas, square, signe_x, signe_y, vitesse)
+level.first_level(root, canvas, square, signe_x, signe_y, vitesse)
 
 root.mainloop()
